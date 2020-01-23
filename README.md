@@ -15,5 +15,5 @@ The following jupyter notebooks are part of the teaching material for the GR cou
 
 6. [**pyTOV-STT**](https://github.com/niksterg/pyTOV-STT) (numerical solution of TOV equations in STT theory anf for piecewise-polytropic EOS)
 
-The lecture notes for the course can be found [here](https://github.com/niksterg/MSc-GR-course/blob/master/GR-notes-NS.pdf).
+The lecture notes for the course can be found [here](https://github.com/niksterg/MSc-GR-course/blob/master/GR-notes-NS.pdf) and [here](https://github.com/niksterg/MSc-GR-course/blob/master/GWs.pdf).
 
