@@ -1,0 +1,1430 @@
+%&latex
+
+% In Bakoma tex choose Options-> Document Properties -> Paper -> Prosper %and Landscape
+%
+%
+\documentclass[size=11pt,style=paintings]{powerdot}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{epsf}
+
+
+\begin{document}
+
+%+Title
+\title{Gravitational Waves}
+\author{Nikolaos Stergioulas}
+\date{\today}
+\maketitle
+%-Title
+
+\begin{slide}{The Two Polarizations in the TT gauge}
+\begin{figure}
+  \centering
+  \includegraphics[width=5cm,height=6cm]{figs-GWs/polarizations.png}
+  \caption{The effect of the two polarizations on a circle. Figure from \cite{2008-Maggiore}.}
+\label{fig:polarization}
+\end{figure}
+\end{slide}
+
+\begin{slide}{Generation of GWs}
+
+  \begin{itemize}
+    \item Linearized field equations
+ $$
+\square \bar{h}_{\mu \nu}=-\frac{16 \pi G}{c^{4}} T_{\mu \nu}
+$$
+ \item Solution
+$$
+\bar{h}_{\mu \nu}(x)=-\frac{16 \pi G}{c^{4}} \int d^{4} x^{\prime} G\left(x-x^{\prime}\right) T_{\mu \nu}
+$$
+where  $$
+\boxed{G\left(x-x^{\prime}\right)=-\frac{1}{4 \pi\left|\mathbf{x}-\mathbf{x}^{\prime}\right|} \delta\left(x_{\mathrm{ret}}^{0}-x^{\prime 0}\right)}
+$$
+
+ is a Green's function, satisfying
+   $$
+\square_{x} G\left(x-x^{\prime}\right)=\delta^{4}\left(x-x^{\prime}\right)
+$$
+  
+ and $$
+t_{\mathrm{ret}}=t-\frac{\left|\mathbf{x}-\mathbf{x}^{\prime}\right|}{c}
+$$
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Generation of GWs}
+ \begin{itemize}
+ \item The solution becomes
+ $$
+\boxed{\bar{h}_{\mu \nu}(t, \mathbf{x})=\frac{4 G}{c^{4}} \int d^{3} x^{\prime} \frac{1}{\left|\mathbf{x}-\mathbf{x}^{\prime}\right|} T_{\mu \nu}\left(t-\frac{\left|\mathbf{x}-\mathbf{x}^{\prime}\right|}{c}, \mathbf{x}^{\prime}\right)}
+$$
+\item Define the \textit{spatial projector} normal to a direction $\hat {\bf n}$
+$$
+P_{i j} := \delta_{i j}-n_{i} n_{j}
+$$
+ then 
+\begin{eqnarray}
+\Lambda_{i j, k l}(\hat{\mathbf{n}}) &=&P_{i k} P_{j l}-\frac{1}{2} P_{ij}P_{kl}\nonumber\\
+&=&\delta_{i k} \delta_{j l}-\frac{1}{2} \delta_{i j} \delta_{k l}-n_{j} n_{l} \delta_{i k}-n_{i} n_{k} \delta_{j l} \nonumber\\ 
+&&+\frac{1}{2} n_{k} n_{l} \delta_{i j}+\frac{1}{2} n_{i} n_{j} \delta_{kl}
++\frac{1}{2} n_{i} n_{j} n_{k} n_{l}\nonumber
+ \end{eqnarray}
+\end{itemize}
+ \end{slide}
+
+\begin{slide}{Transverse Traceless Gauge and Far-Field Approximation}
+ \begin{itemize} 
+ \item If $h_{\mu\nu}$ is in Lorentz gauge (in vacuum), then it is brought to the \textit{TT gauge} via the projection
+$$
+h_{i j}^{\mathrm{TT}}=\Lambda_{i j, k l} h_{k l}
+$$
+and the solution in vacuum is then 
+$$
+h_{i j}^{\mathrm{TT}}(t, \mathbf{x})=\frac{4 G}{c^{4}} \Lambda_{i j, k l}(\hat{\mathbf{n}}) \int d^{3} x^{\prime} \frac{1}{\left|\mathbf{x}-\mathbf{x}^{\prime}\right|} T_{k l}\left(t-\frac{\left|\mathbf{x}-\mathbf{x}^{\prime}\right|}{c}, \mathbf{x}^{\prime}\right)
+$$
+\item Far from the source, we can expand (where $d$ is the source size)
+$$
+\left|\mathbf{x}-\mathbf{x}^{\prime}\right|=r-\mathbf{x}^{\prime} \cdot \hat{\mathbf{n}}+\mathcal{O}\left(\frac{d^{2}}{r}\right)
+$$
+and obtain the \textit{far-field approximation
+}$$
+h_{i j}^{\mathrm{TT}}(t, \mathbf{x})=\frac{4 G}{c^{4}} \Lambda_{i j, k l}(\hat{\mathbf{n}}) \int d^{3} x^{\prime} \frac{1}{\left|\mathbf{x}-\mathbf{x}^{\prime}\right|} T_{k l}\left(t-\frac{r}{c}+\frac{\mathbf{x}^{\prime} \cdot \hat{\mathbf{n}}}{c}, \mathbf{x}^{\prime}\right)
+$$
+ \end{itemize}
+ \end{slide}
+
+
+\begin{slide}{Non-relativistic Sources}
+ \begin{itemize}
+ \item Let us Fourier transform the stress-energy tensor:
+ $$
+T_{k l}\left(t-\frac{\left|\mathbf{x}-\mathbf{x}^{\prime}\right|}{c}, \mathbf{x}^{\prime}\right)=\int \frac{d^{4} k}{(2 \pi)^{4}} \tilde{T}_{k l}(\omega, \mathbf{k}) e^{-i \omega\left(t-r / c+\mathbf{x}^{\prime} \hat{\mathbf{n}}\right)+i \mathbf{k} \cdot \mathbf{x}^{\prime}}
+$$
+ If the source has a maximum frequency $\omega_{s}$ and is \textit{non-relativistic} $(\omega_{s} d \ll c)$ and because $ \left|\mathbf{x}^{\prime}\right| \lesssim d$, only frequencies for which 
+$$
+\frac{\omega}{c} \mathbf{x}^{\prime} \cdot \hat{\mathbf{n}} \lesssim \frac{\omega_{s} d}{c} \ll 1
+$$
+contribute. Then, expanding in terms of $ \omega \mathbf{x}^{\prime} \cdot \hat{\mathbf{n}} / c$
+$$
+e^{-i \omega\left(t-r / c+\mathbf{x}^{\prime} \hat{\mathbf{n}} / c\right)+i \mathbf{k} \cdot \mathbf{x}^{\prime}}=e^{-i \omega(t-r / c)}\left[1-i \frac{\omega}{c} x^{\prime i} n^{i}+\frac{1}{2}\left(-i \frac{\omega}{c}\right)^{2} x^{i} x^{\prime j} n^{i} n^{j}+\ldots\right]
+$$
+or, in the time domain:
+$$
+T_{k l}\left(t-\frac{r}{c}+\frac{\mathbf{x}^{\prime} \cdot \hat{\mathbf{n}}}{c}, \mathbf{x}^{\prime}\right)=T_{k l}\left(t-r / c, \mathbf{x}^{\prime}\right)+\frac{x^{\prime i} n^{i}}{c} \partial_{0} T_{k l}+\frac{1}{2 c^{2}} x^{i} x^{\prime j} n^{i} n^{j} \partial_{0}^{2} T_{k l}+\dots
+$$
+ \end{itemize}
+ \end{slide}
+
+
+\begin{slide}{Multipole Moments of the Stress-Energy Tensor}
+ \begin{itemize}
+ \item The multipole moments of $T_{\mu\nu}$ are
+ $$
+\begin{aligned} S^{i j} &=\int d^{3} x T^{i j}(t, \mathbf{x}) \\ S^{i j, k} &=\int d^{3} x T^{i j}(t, \mathbf{x}) x^{k} \\ S^{i j, k l} &=\int d^{3} x T^{i j}(t, \mathbf{x}) x^{k} x^{l} \\ & \cdots \end{aligned}
+$$
+and the solution becomes
+$$
+h_{i j}^{\mathrm{TT}}=\frac{1}{r} \frac{4 G}{c^{4}} \Lambda_{i j, k l}(\hat{\mathbf{n}})\left[S^{k l}+\frac{1}{c} n_{m} \dot{S}^{k l, m}+\frac{1}{2 c^{2}} n_{m} n_{p} \ddot{S}^{k l, m p}+\ldots\right]_{\mathrm{ret}}
+$$
+ \end{itemize}
+ \end{slide}
+
+
+\begin{slide}{Mass Density and Momentum Density Multipole Moments}
+ \begin{itemize}
+ \item In terms of the mass density $ \left(1 / c^{2}\right) T^{00} $ one can define the moments
+ $$
+\begin{aligned} M &=\frac{1}{c^{2}} \int d^{3} x T^{00}(t, \mathbf{x}) \\ M^{i} &=\frac{1}{c^{2}} \int d^{3} x T^{00}(t, \mathbf{x}) x^{i} \\ M^{i j} &=\frac{1}{c^{2}} \int d^{3} x T^{00}(t, \mathbf{x}) x^{i} x^{j} \\ M^{i j k} &=\frac{1}{c^{2}} \int d^{3} x T^{00}(t, \mathbf{x}) x^{i} x^{j} x^{k},  \ \ \
+ \cdots  \end{aligned}
+$$
+and in terms of the momentum density  $(1/c) T^{0 i}$$$
+\begin{aligned} P^{i} &=\frac{1}{c} \int d^{3} x T^{0 i}(t, \mathbf{x}) \\ P^{i, j} &=\frac{1}{c} \int d^{3} x T^{0 i}(t, \mathbf{x}) x^{j} \\ P^{i, j k} &=\frac{1}{c} \int d^{3} x T^{0 i}(t, \mathbf{x}) x^{j} x^{k}, \ \ \  \cdots \end{aligned}
+$$
+ \end{itemize}
+ \end{slide}
+
+
+\begin{slide}{Mass Quadrupole Radiation}
+ \begin{itemize}
+ \item The quadrupole moment of $T_{\mu\nu}$  is written in terms of the mass-density qudrupole moment as
+ $$
+\boxed{S^{i j}=\frac{1}{2} \ddot{M}^{i j}}
+$$
+ and the solution becomes to leading order in $v/c$
+$$
+\boxed{\left[h_{i j}^{\rm TT}(t, \mathbf{x})\right]_{\mathrm{quad}}=\frac{1}{r} \frac{2 G}{c^{2}} \Lambda_{i j, k l}(\hat{\mathbf{n}}) \ddot{M}^{k l}(t-r / c)}
+$$
+Define the \textit{reduced (trace-free) quadrupole moment tensor}
+\begin{eqnarray}
+Q^{i j} &:=& M^{i j}-\frac{1}{3} \delta^{i j} M_{k k} \\
+&\simeq& \int d^{3} x \rho(t, \mathbf{x})\left(x^{i} x^{j}-\frac{1}{3} r^{2} \delta^{i j}\right)
+\end{eqnarray}
+(to leading order in $v/c$ it becomes the Newtonian expression) and
+$$
+Q_{i j}^{\mathrm{TT}}=\Lambda_{i j, k l}(\mathbf{n}) Q_{i j}
+$$
+ \end{itemize}
+ \end{slide}
+
+
+\begin{slide}{Quadrupole Approximation}
+ \begin{itemize}
+ \item The \textit{quadrupole formula} for GW radiation is
+ $$
+\boxed{\left[h_{i j}^{\rm TT}(t, \mathbf{x})\right]_{\mathrm{quad}}=\frac{1}{r} \frac{2 G}{c^{4}} \ddot{Q}_{i j}^{\mathrm{TT}}(t-r / c)}
+$$
+ Notice that $
+\ddot Q_{i j}^{\mathrm{TT}}=\Lambda_{i j, k l} \ddot{Q}_{i j}=\Lambda_{i j, k l} \ddot{M}_{i j}
+$ (the latter is preferred in calculations)
+
+\vspace{0.3cm}
+
+\item \textbf{EXAMPLE}: Emission along $\hat{\bf n}=\hat{\bf z}$. Then $
+P_{i j}=\delta_{i j}-n_{i} n_{j} $\text { becomes }
+
+$$
+P_{ij}=\left(\begin{array}{lll}{1} & {0} & {0} \\ {0} & {1} & {0} \\ {0} & {0} & {0}\end{array}\right)
+$$
+For any $3\times 3$ matrix $A_{ij}$
+$$
+\begin{aligned} \Lambda_{i j, k l} A_{k l} &=\left[P_{i k} P_{j l}-\frac{1}{2} P_{i j} P_{k l} \right] A_{kl} \\ &=(P A P)_{i j}-\frac{1}{2} P_{i j} \operatorname{Tr}(P A) \end{aligned}
+$$
+ \end{itemize}
+ \end{slide}
+
+
+\begin{slide}{Quadrupole Approximation}
+ and 
+ $$
+P A P=\left(\begin{array}{ccc}{A_{11}} & {A_{12}} & {0} \\ {A_{21}} & {A_{22}} & {0} \\ {0} & {0} & {0}\end{array}\right)
+$$
+while $
+\operatorname{Tr}(P A)=A_{11}+A_{22}
+$. Then:
+$$
+\begin{aligned} \Lambda_{i j, k l} A_{k l} &=&\left(\begin{array}{ccc}{A_{11}}  &{A_{12}} & {0} \\ {A_{21}} & {A_{22}} & {0} \\ {0} & {0} & {0}\end{array}\right)_{ij} -\frac{A_{11}+A_{22}}{2}\left(\begin{array}{ccc}{1} & {0} & {0} \\ {0} & {1} & {0} \\ {0} & {0} & {0}\end{array}\right)_{i j} \\ &=&\left(\begin{array}{ccc}{\left(A_{11}-A_{22}\right) / 2} & {A_{12}} & {0} \\ {A_{21}} & {-\left(A_{11}-A_{22}\right) / 2} & {0} \\ {0} & {0} & {0}\end{array}\right)_{i j} \end{aligned}
+$$
+Thus
+\vspace{-0.4cm}
+$$
+\Lambda_{i j, k l} \ddot{M}_{k l}=\left(\begin{array}{ccc}{\left(\ddot{M}_{11}-\ddot{M}_{22}\right) / 2} & {\ddot{M}_{12}} & {0} \\ {\ddot{M}_{21}} & {-\left(\ddot{M}_{11}-\ddot{M}_{22}\right) / 2} & {0} \\ {0} & {0}\end{array}\right)_{i j}
+$$
+ \end{slide}
+
+
+\begin{slide}{Quadrupole Approximation}
+ \begin{itemize}
+ \item Comparing to 
+ $$
+h_{i j}^{\mathrm{TT}}=\left(\begin{array}{ccc}{h_{+}} & {h_{\times}} & {0} \\ {h_{\times}} & {-h_{+}} & {0} \\ {0} & {0} & {0}\end{array}\right)_{i j}
+$$
+we immediately find
+\begin{eqnarray}
+h_{+} &=&\frac{1}{r} \frac{G}{c^{4}}\left(\ddot{M}_{11}-\ddot{M}_{22}\right) \nonumber \\ h_{\times}&=&\frac{2}{r} \frac{G}{c^{4}} \ddot{M}_{12}\nonumber
+\end{eqnarray}
+(the r.h.s. is computed in the retarded time $t-r$).
+ \end{itemize}
+ \end{slide}
+
+
+\begin{slide}{Emission Along Arbitrary Direction}
+ \begin{itemize}
+ \item Along an arbitrary direction $\hat{\bf n}$, with components in a Cartesian system
+$$ n_{i}=(\sin \theta \sin \phi, \sin \theta \cos \phi, \cos \theta)$$
+the two polarizations are:
+$$
+\begin{aligned} 
+h_{+}(t ; \theta, \phi)=\frac{1}{r} \frac{G}{c^{4}} &\left[ \ddot{M}_{11}\left(\cos ^{2} \phi-\sin ^{2} \phi \cos ^{2} \theta\right) +\ddot{M}_{22}\left(\sin
+^{2} \phi-\cos ^{2} \phi \cos ^{2} \theta\right) \right. \\ &-\ddot{M}_{33} \sin ^{2} \theta -\dot{M}_{12} \sin 2 \phi\left(1+\cos ^{2} \theta\right) \\ &+ \left.\ddot{M}_{13} \sin \phi \sin 2 \theta +\ddot{M}_{23} \cos \phi \sin 2 \theta  \right] \end{aligned}
+$$
+and
+$$
+\begin{aligned} h_{\times}(t ; \theta, \phi)=\frac{1}{r} \frac{G}{c^{4}}&\left[\left(\ddot{M}_{11}-\ddot{M}_{22}\right) \sin 2 \phi \cos \theta +2 \ddot{M}_{12} \cos 2 \phi \cos \theta \right. \\ &-2 \ddot{M}_{13} \cos \phi \sin \theta \left.+2 \ddot{M}_{23} \sin \phi  \sin \theta\right] \end{aligned}
+$$
+ \end{itemize}
+ \end{slide}
+
+
+
+\begin{slide}{Emitted Energy and Linear Momentum of GWs}
+
+  \begin{itemize}
+    \item Energy is emitted by GWs at a rate
+\begin{eqnarray}
+\frac{d E_{\mathrm{GW}}}{d t} &=&\frac{c^{3} r^{2}}{32 \pi G} \int d \Omega\left\langle\dot{h}_{i
+j}^{\mathrm{TT}} \dot{h}_{i j}^{\mathrm{TT}}\right\rangle \\
+&=&\frac{c^{3} r^{2}}{16 \pi G} \int d \Omega\left\langle\dot{h}_{+}^{2}+\dot{h}_{\times}\right\rangle \\
+&\simeq&\frac{G}{5c^{5}} \left\langle\dddot{Q}_{j k} \dddot{Q}^{j k}\right\rangle \\
+&=&\frac{G}{5 c^{5}}\left\langle\ddot{M}_{i j} \ddot{M}_{i j} -\frac{1}{3}\left(\ddot{M}_{k k}\right)^{2}\right\rangle
+\end{eqnarray}
+    \item There is no loss of linear momentum in the quadrupole approximation
+\begin{eqnarray}
+\frac{\partial P_{\mathrm{GW}}^{k}}{d t}
+=-\frac{G}{8 \pi c^{5}} \int d \Omega \ddot{Q}_{ij}^{\mathrm{TT}} \partial^{k} \ddot{Q}_{ij}^{\mathrm{TTT}} =0
+\end{eqnarray}
+because  $Q_{ij}$ is invariant and $\partial^{i} \rightarrow-\partial^{i}$ under a reflection $\mathbf{x} \rightarrow-\mathbf{x}$.  
+\end{itemize}
+\end{slide}
+
+
+\begin{slide}{Angular Momentum Emitted by\ GWs}
+ \begin{itemize}
+ \item The angular momentum carried away by GWs is $$
+\frac{d J^{i}}{d t}=\frac{c^{3}}{32 \pi G} \int r^{2} d \Omega\left\langle-\epsilon^{i k l} \dot h_{a b}^{\mathrm{TT}} x^{k} \partial^{\ell}  h_{a b}^{\mathrm{TT}}+2 \epsilon^{i k l} \dot h_{a l}^{\mathrm{TT}} h_{a k}^{\mathrm{TT}}\right\rangle
+$$
+In the quadrupole approximation, this becomes
+$$
+\left(\frac{d J^{i}}{d t}\right)_{\text {quad }}=\frac{2 G}{5 c^{5}} \epsilon^{i k l}\left\langle\ddot{Q}_{k a} \dddot{Q}_{l a}\right\rangle
+$$
+ \end{itemize}
+ \end{slide}
+
+
+\begin{slide}{GWs from a Binary System}
+ \begin{itemize}
+ \item Consider a binary with circular orbits. The trajectories of the two stars are ${\bf x}_1(t)$ and ${\bf x}_2(t)$ and the relative coordinate is $
+\mathbf{x}_{0}=\mathbf{x}_{1}-\mathbf{x}_{2}
+$. The center of mass is $$
+\mathbf{x}_{\mathrm{CM}}=\frac{m_{1} \mathbf{x}_{1}+m_{2} \mathbf{x}_{2}}{m_{1}+m_{2}}
+$$
+For a nonrelativistic system, the mass quadrupole moment is 
+$$
+\begin{aligned} M^{i j} &=m_{1} x_{1}^{i} x_{1}^{j}+m_{2} x_{2}^{i} x_{2}^{j} \\ &=m x_{\mathrm{CM}}^{i} x_{\mathrm{CM}}^{j}+\mu\left(x_{\mathrm{CM}}^{i} x_{0}^{j}+x_{\mathrm{CM}}^{j} x_{0}^{i}\right)+\mu x_{0}^{i} x_{0}^{j} \end{aligned}
+$$
+where $m=m_1+m_2$ and
+\vspace{-0.3cm}
+$$
+%\mu = m_{1} m_{2} /\left(m_{1}+m_{2}\right)
+\mu = \frac{m_{1} m_{2}}{m_{1}+m_{2}}
+$$is the reduced mass. If we choose $\mathbf{x}_\mathrm{CM}=0$ as the origin of our coordinate system, then the mass quadrupole moment is
+$$
+\boxed{M^{i j}(t)=\mu x_{0}^{i}(t) x_{0}^{j}(t)}
+$$
+ \end{itemize}
+ \end{slide}
+
+
+\begin{slide}{GWs from a Binary System}
+ \begin{itemize}
+ \item In the CM frame, the dynamics reduces to a one-body problem with reduced mass $\mu$.
+
+\vspace{0.3cm} \item Choose a circular orbit with angular frequency $\omega_s$ in the plane with $z_0=0$$$
+\begin{array}{l}{x_{0}(t)=R \cos \left(\omega_{s} t+\frac{\pi}{2}\right)} \\ {y_{0}(t)=R \sin \left(\omega_{s} t+\frac{\pi}{2}\right)} \\ {z_{0}(t)=0}\end{array}
+$$Then
+\begin{eqnarray}
+M_{11} &=& \mu R^{2} \frac{1-\cos 2 \omega_{s} t}{2} \\ M_{22} &=& \mu R^{2} \frac{1+\cos 2 \omega_{s} t}{2} \\ M_{12} &=& -\frac{1}{2} \mu R^{2} \sin 2 \omega_{s} t 
+\end{eqnarray}
+(other components are zero).
+ \end{itemize}
+ \end{slide}
+
+
+\begin{slide}{GWs from a Binary System}
+ \begin{itemize}
+ \item Taking two time-derivatives: $$
+\begin{array}{l}{\ddot{M}_{11}= -\ddot{M}_{22} =2 \mu R^{2} \omega_{s}^{2} \cos 2 \omega_{s} t} \\ {\ddot{M}_{12}=2 \mu R^{2} \omega_{s}^{2} \sin 2 \omega_{s} t}\end{array}
+$$
+\vspace{-0.3cm}
+and
+$$
+\begin{array}{l}{h_{+}(t ; \theta, \phi)=\frac{1}{r} \frac{4 G \mu \omega_{s}^{2} R^{2}}{c^{4}}\left(\frac{1+\cos ^{2} \theta}{2}\right) \cos \left(2 \omega_{s} t_{\mathrm{ret}}+2 \phi\right)} \\ {\left.h_{\times}(t ; \theta, \phi)\right)=\frac{1}{r} \frac{4 G \mu \omega_{s}^{2} R^{2}}{c^{4}} \cos \theta \sin \left(2 \omega_{s} t_{\mathrm{ret}}+2 \phi\right)}\end{array}
+$$
+\item If we can neglect the proper motion of the source, then the angle $\phi$ is fixed and by a change of the origin of time one can set it to zero.
+\item If we view the system from an \textit{inclination} $\iota=\theta$, then
+$$
+\begin{array}{l}{h_{+}(t)=\frac{1}{r} \frac{4 G \mu \omega_{s}^{2} R^{2}}{c^{4}}\left(\frac{1+\cos ^{2} \iota}{2}\right) \cos \left(2 \omega_{s} t\right)} \\ {h_{\times}(t)=\frac{1}{r} \frac{4 G \mu \omega_{s}^{2} R^{2}}{c^{4}} \cos \iota \sin \left(2 \omega_{s} t\right)}\end{array}
+$$
+\item For $\iota=0 \Rightarrow$ circular polarization, for $\iota=90^{o } \Rightarrow$ linear polarization, otherwise elliptic polarization. Measuring polarization, recovers $\iota$.
+ \end{itemize}
+ \end{slide}
+
+
+\begin{slide}{}
+ \begin{itemize}
+ \item The two polarizations can be written as $$
+\begin{array}{l}{h_{+}(t)=\frac{4}{r}\left(\frac{G M_{c}}{c^{2}}\right)^{5
+/ 3}\left(\frac{\pi f_{\mathrm{gw}}}{c}\right)^{2 / 3} \frac{1+\cos ^{2}
+\theta}{2} \cos \left(2 \pi f_{\mathrm{gw}} t_{\mathrm{ret}}+2 \phi\right)}
+\\ {h_{\times}(t)=\frac{4}{r}\left(\frac{G M_{c}}{c^{2}}\right)^{5 / 3}\left(\frac{\pi
+f_{\mathrm{gw}}}{c}\right)^{2 / 3} \cos \theta \sin \left(2 \pi f_{\mathrm{gw}}
+t_{\mathrm{ret}}+2 \phi\right)}\end{array}
+$$
+where $\omega_{\rm gw}=2\omega_s$ and$$
+f_{\mathrm{gw}}=\omega_{\mathrm{gw}} /(2 \pi)
+$$
+is the frequency of the GWs and 
+$$
+M_{c}=\mu^{3 / 5} m^{2 / 5}=\frac{\left(m_{1} m_{2}\right)^{3 / 5}}{\left(m_{1}+m_{2}\right)^{1
+/ 5}}
+$$
+is the \textit{chirp mass}. 
+\item Kepler's law is
+$$
+\omega_{s}^{2}=\frac{G m}{R^{3}}
+$$
+ \end{itemize}
+ \end{slide}
+
+
+\begin{slide}{Radiated Power}
+ \begin{itemize}
+ 
+ \item The angular distribution of the radiated power is
+ $$
+\left(\frac{d P}{d \Omega}\right)_{\text {quad }}=\frac{2 G \mu^{2} R^{4} \omega_{s}^{6}}{\pi c^{5}} g(\theta)
+$$
+or $$
+\boxed{ \left(\frac{d P}{d \Omega}\right)_{\text {quad }}=\frac{2}{\pi} \frac{c^{5}}{G}\left(\frac{G M_{c} \omega_{\rm
+g
+w}}{2 c^{3}}\right)^{10 / 3} g(\theta)}
+$$
+
+where
+$$
+g(\theta)=\left(\frac{1+\cos ^{2} \theta}{2}\right)^{2}+\cos ^{2} \theta
+$$
+
+ which has an angular average of 
+ $$
+\int \frac{d \Omega}{4 \pi} g(\theta)=\frac{4}{5}
+$$
+
+\vspace{0.2cm}
+
+ \end{itemize}
+ \end{slide}
+
+
+
+
+\begin{slide}{Radiate Power}
+ \begin{itemize}
+ \item The radiated power is
+$$P_{\mathrm{quad}}=\frac{1}{10} \frac{G \mu^{2}}{c^{5}} R^{4} \omega_{\rm
+gw}^{6}
+$$
+or 
+$$
+\boxed{P_{\mathrm{quad}}=\frac{32}{5} \frac{c^{5}}{G}\left(\frac{G M_{c} \omega_{\mathrm{gw}}}{2
+c^{3}}\right)^{10 / 3}}
+$$
+ \item The \textit{energy radiated in one period} $T=2\pi/\omega_s$ is (with $v=\omega_sR$)
+$$
+\left\langle E_{\mathrm{quad}}\right\rangle_{T}=\frac{64 \pi}{5} \frac{G
+\mu^{2}}{R}\left(\frac{v}{c}\right)^{5}
+$$
+i.e. the energy scale $G\mu^2/R$\ is suppressed by a factor $(v/c)^5$.
+ 
+
+ \end{itemize}
+ \end{slide}
+
+
+\begin{slide}{Frequency evolution}
+ \begin{itemize}
+ \item The orbital energy is 
+ $$
+\begin{aligned} E_{\text {orbit }} &=E_{\text {kin }}+E_{\text {pot }} \\ &=-\frac{G m_{1} m_{2}}{2 R} \\
+&=-\left(G^{2} M_{c}^{5} \omega_{\mathrm{gw}}^{2} / 32\right)^{1 / 3}
+\end{aligned}
+$$
+\item Assume that
+$$ \left |\frac{dE_{\text {orbit }}}{dt} \right|=P_{\mathrm{quad}}
+$$ 
+Then 
+$$
+\boxed{\dot{f}_{\rm g w}=\frac{96}{5} \pi^{8 / 3}\left(\frac{G M_{c}}{c^{3}}\right)^{5 / 3} f_{\rm g w}^{11 / 3}}
+$$
+ \end{itemize}
+ \end{slide}
+
+
+\begin{slide}{}
+ \begin{itemize}
+ \item Integrating $\dot{f}_{\rm g w}$, we see that it \textit{diverges} at a finite time
+$t_{\rm coal}$.
+The remaining time to coalescence is then 
+$$\boxed{\tau = t_{\rm coal}-t}$$
+and the frequency evolution is written as
+$$
+f_{\mathrm{gw}}(\tau)=\frac{1}{\pi}\left(\frac{5}{256} \frac{1}{\tau}\right)^{3 / 8}\left(\frac{G M_{c}}{c^{3}}\right)^{-5 / 8}
+$$
+or
+$$
+\boxed{f_{\mathrm{gw}}(\tau) \simeq 134 \mathrm{Hz}\left(\frac{1.21 M_{\odot}}{M_{c}}\right)^{5 / 8}\left(\frac{1 s}{\tau}\right)^{3 / 8}}
+$$
+\item The time to coalescence is thus
+$$
+\boxed{\tau \simeq 2.18 \mathrm{s}\left(\frac{1.21 M_{\odot}}{M_{c}}\right)^{5 / 3}\left(\frac{100 \mathrm{Hz}}{f_{\mathrm{gw}}}\right)^{8 / 3}}
+$$
+ \end{itemize}
+ \end{slide}
+
+
+\begin{slide}{Number of cycles}
+ \begin{itemize}
+ \item When the period $T(t)$ is slowly varying, the number of cycles in a time interval $dt$ is
+$$
+d  \mathcal{N}_{\mathrm{cyc}}=\frac{d t}{  T(t)}=f_{\mathrm{gw}}(t) d t
+$$
+and thus the number of cycles spent between frequencies $f_{\rm min}$ and $f_{\rm max}$ is
+\vspace{-0.2cm}
+$$
+\begin{aligned} \mathcal{N}_{\mathrm{cyc}} &=\int_{t_{\min }}^{t_{\max }} f_{\mathrm{gw}}(t) d t \\ &=\int_{f_{\min }}^{f_{\max }} d f_{\mathrm{gw}} \frac{f_{\mathrm{gw}}}{\dot f_{\mathrm{gw}}} \end{aligned}
+$$
+or
+\vspace{-0.15cm}
+$$
+\begin{aligned} \mathcal{N}_{\mathrm{cyc}} &=\frac{1}{32 \pi^{8 / 3}}\left(\frac{G M_{c}}{c^{3}}\right)^{-5 / 3}\left(f_{\min }^{-5 / 3}-f_{\max }^{-5 / 3}\right)  \end{aligned}
+$$
+If $
+f_{\min }^{-5 / 3}-f_{\max }^{-5 / 3} \simeq f_{\min }^{-5 / 3}
+$, then
+$$
+ \boxed{\mathcal{N}_{\mathrm{cyc}} = \simeq 1.6 \times 10^{4}\left(\frac{10 \mathrm{Hz}}{f_{\min }}\right)^{5
+/ 3}\left(\frac{1.2 M_{\odot}}{M_{c}}\right)^{5 / 3} }
+$$
+ \end{itemize}
+ \end{slide}
+
+
+\begin{slide}{Orbital Evolution}
+ \begin{itemize}
+
+ \item From Kepler's law and the equation for $\dot f_{\rm gw}$ we find that the radius of the orbit shrinks according to 
+ $$
+\begin{aligned} \frac{\dot{R}}{R} &=-\frac{2}{3} \frac{\dot{f}_{\mathrm{gw}}}{f_{\mathrm{gw}}} =-\frac{1}{4 \tau} \end{aligned}
+$$
+If at $t=t_0$ the radius is $R=R_0$ and $\tau_0 = t_{\rm coal}-t_0$, then integrating:
+$$
+\boxed{ R(\tau) =R_{0}\left(\frac{\tau}{\tau_{0}}\right)^{1 / 4}  }
+$$
+ \vspace{-0.3cm}
+\item From Kepler's law and the equation for $f_{\rm gw}$ we find 
+$$
+\tau_{0}=\frac{5}{256} \frac{c^{5} R_{0}^{4}}{G^{3} m^{2} \mu}
+$$
+ \vspace{-0.3cm}
+or
+$$
+\boxed{\tau_{0} \simeq 9.83 \times 10^{6} \mathrm{yr}\left(\frac{T_{0}}{1 \mathrm{hr}}\right)^{8 / 3}\left(\frac{M_{\odot}}{m}\right)^{2 / 3}\left(\frac{M_{\odot}}{\mu}\right)}
+$$
+
+ \end{itemize}
+ \end{slide}
+
+
+\begin{slide}{Phase Evolution}
+ \begin{itemize}
+ \item Because $\omega_{\mathrm{gw}} = d\Phi/dt$, the evolution of the phase is 
+\vspace{-0.2cm}
+ $$
+  \Phi(t)  =\int_{t_{0}}^{t} d t^{\prime} \omega_{\mathrm{gw}}\left(t^{\prime}\right)
+$$
+\vspace{-0.2cm}
+or, with $\Phi_0=\Phi(\tau=0)$
+$$
+\boxed{\Phi(\tau)=-2\left(\frac{5 G M_{c}}{c^{3}}\right)^{-5 / 8} \tau^{5 / 8}+\Phi_{0}}
+$$
+\item The waveform is 
+$$
+\vspace{-0.2cm}
+\begin{array}{l}{h_{+}(t)=\frac{4}{r}\left(\frac{G M_{c}}{c^{2}}\right)^{5 / 3}\left(\frac{\pi f_{\mathrm{gw}}\left(t_{\text {ret }}\right)}{c}\right)^{2 / 3}\left(\frac{1+\cos ^{2} \iota}{2}\right) \cos \left[\Phi\left(t_{\text {ret }}\right)\right]} \\ {h_{x}(t)=\frac{4}{r}\left(\frac{G M_{c}}{c^{2}}\right)^{5 / 3}\left(\frac{\pi f_{\mathrm{gw}}\left(t_{\text {ret }}\right)}{c}\right)^{2 / 3} \cos \iota \sin \left[\Phi\left(t_{\text {ret }}\right)\right]}\end{array}
+$$
+or
+\vspace{-0.1cm}
+$$
+\begin{array}{l}{h_{+}(\tau)=\frac{1}{r}\left(\frac{G M_{c}}{c^{2}}\right)^{5 / 4}\left(\frac{5}{c \tau}\right)^{1 / 4}\left(\frac{1+\cos ^{2} \iota}{2}\right) \cos [\Phi(\tau)]} \\ {h_{\times}(\tau)=\frac{1}{r}\left(\frac{G M_{c}}{c^{2}}\right)^{5 / 4}\left(\frac{5}{c \tau}\right)^{1 / 4} \cos \iota \sin [\Phi(\tau)]}\end{array}
+$$
+ \end{itemize}
+ \end{slide}
+ 
+ \begin{slide}{Higher-order Multipoles}
+ \begin{itemize}
+\item For a binary system in circular orbit and assuming a \textit{flat background}, the \textit{mass octupole }and the \textit{current quadrupole} emit GWs at both frequencies  $\omega_s$ and $3\omega_s$. The power emitted (compared to the mass quadrupole) is
+ $$
+\begin{aligned} P_{\rm oct+cq}\left(\omega_{s}\right)&=\frac{19}{672}\left(\frac{v}{c}\right)^{2} P_{\rm quad}\left(2 \omega_{s}\right) \\ P_{\rm oct+cq}\left(3 \omega_{s}\right) &=\frac{135}{224}\left(\frac{v}{c}\right)^{2} P_{\rm quad}\left(2 \omega_{s}\right) \end{aligned}
+$$
+so it is suppressed by a factor of $(v/c)^2$. 
+\vspace{0.3cm}
+\item Notice, however, that the orbit is also affected at order $(v/c)^2$ by relativistic effects, so that the above calculation is not consistent to this order, but only indicates the order of magnitude.
+ \end{itemize}
+ \end{slide}
+
+\begin{slide}{ISCO}
+ \begin{itemize}
+ \item The inspiral phase terminates when the orbit becomes unstable. For a Schwarzschild spacetime of mass $m=m_1+m_2$, the ISCO radius is 
+$$
+r_{1 \mathrm{SCO}}=\frac{6 G m}{c^{2}}
+$$
+The orbital frequency at the ISCO is
+$$
+\left(f_{s}\right)_{\mathrm{ISCO}}=\frac{1}{6 \sqrt{6}(2 \pi)} \frac{c^{3}}{G m}
+$$
+or
+$$
+\boxed{\left(f_{s}\right)_{\mathrm{ISCO}} \simeq 2.2 \mathrm{kHz}\left(\frac{M_{\odot}}{m}\right)}
+$$
+
+ \end{itemize}
+ \end{slide}
+ \begin{slide}{General TT Plane Wave Solution}
+ \begin{itemize}
+ \item The general solution of the wave equation in the $TT$-gauge 
+ $\square h_{i j}^{\mathrm{TT}}=0$ can be written as $$
+h_{i j}^{\mathrm{TT}}(x)=\int \frac{d^{3} k}{(2 \pi)^{3}}\left(\mathcal{A}_{i j}(\mathbf{k}) e^{i k^\mu x_\mu}+\mathcal{A}_{i j}^{*}(\mathbf{k}) e^{-i k^\mu x_\mu}\right)
+$$
+where $ k^{\mu}=(\omega / c, \mathbf{k})$ with \(\mathbf{k} /|\mathbf{k}|=\hat{\mathbf{n}}\) and \(|\mathbf{k}|=\omega / c= (2 \pi f) / c. \) Therefore
+$$
+d^{3} k=|\mathbf{k}|^{2} d|\mathbf{k}| d \Omega=(2 \pi / c)^{3} f^{2} d f d \Omega
+$$
+with $f>0$. Setting $d \cos \theta d \phi :=d^{2} \hat{\mathbf{n}}$, the solution is written as
+$$
+h_{i j}^{\mathrm{TT}}(x)=\frac{1}{c^{3}} \int_{0}^{\infty} d f f^{2} \int d^{2} \hat{\mathbf{n}}\left[\mathcal{A}_{i j}(f, \hat{\mathbf{n}}) e^{-2 \pi i f(t-\hat{\mathbf{n}} \cdot \mathbf{x} / c)}+ {\rm c . c .}\right]
+$$
+(notice that both terms in the parenthesis correspond to waves traveling in the \(+\hat{\mathbf{n}}\) direction and only physical frequencies $f>0$ appear in the expansion).
+ \end{itemize}
+ \end{slide}
+ 
+ 
+ \begin{slide}{Plane Wave from Specific Direction}
+ \begin{itemize}
+ \item For a plane wave coming from a specific direction $\hat {\bf n}_0$
+$$ \boxed{ \mathcal{A}_{i j}(f,\mathbf{\hat n}):=A_{i j}(f) \delta^{(2)}\left(\hat{\mathbf{n}}-\hat{\mathbf{n}}_{0}\right) }$$
+(this does not apply to stochastic backgrounds that arrive from different directions).
+\vspace{0.3cm}
+\item In the $TT$-gauge \(k^{i} \mathcal{A}_{i j}(\mathbf{k})=0 \Rightarrow n^{i} \mathcal{A}_{i j}(f,\hat {\bf n})=0 \) and 
+therefore the plane wave is described by only the indices \(a, b=1,2\) in the transverse direction.
+We can thus drop the $TT$ label and write $h_{ab}$ for the wave and $\tilde h_{ab} $ for its Fourier transform. Also in this gauge 
+$$
+\tilde{h}_{a b}(f)=\left(\begin{array}{cc}{\tilde{h}_{+}(f)} & {\tilde{h}_{\times}(f)} \\ {\tilde{h}_{\times}(f)} & {-\tilde{h}_{+}(f)}\end{array}\right)_{a b}
+$$
+\ \end{itemize}
+ \end{slide}
+ 
+ 
+ \begin{slide}{Plane Wave at Detector}
+ \begin{itemize}
+ \item The plane wave solution arriving at a detector from a specific direction $\hat {\bf n}_0$ can thus be written as
+\vspace{-0.2cm}
+$$
+h_{a b}(t, \mathbf{x})=\int_{0}^{\infty} d f\left[\tilde{h}_{a b}(f, \mathbf{x}) e^{-2 \pi i f t}+\tilde{h}_{a b}^{*}(f, \mathbf{x}) e^{2 \pi i f t}\right]
+$$
+\vspace{-0.3cm}
+where
+$$
+\begin{aligned} \tilde{h}_{a b}(f, \mathbf{x}) &=\frac{f^{2}}{c^{3}} \int d^{2} \hat{\mathbf{n}} \mathcal{A}_{a b}(f, \hat{\mathbf{n}}) e^{2 \pi i f \hat{\mathbf{n}} \cdot \mathbf{x} / c} \\ &=\frac{f^{2}}{c^{3}} A_{a b}(f) e^{2 \pi i f \hat{\mathbf{n}}_{0} \cdot \mathbf{x} / c} \end{aligned}
+$$
+\vspace{-0.2cm}
+\item For the ground-based detectors, the length of each arm is much smaller than the reduced wavelength $\lambda/(2\pi)$ of detectable GWs and taking the detector as the center of the coordinate system we have \(\exp \{2 \pi i f \hat{\mathbf{n}} \cdot \mathbf{x} / c\}= \exp \{2 \pi i \hat{\mathbf{n}} \cdot \mathbf{x} / \lambda\} \simeq 1\).
+In this case
+\vspace{-0.2cm}
+$$\boxed{h_{a b}(t)\simeq\int_{0}^{\infty} d f\left[\tilde{h}_{a b}(f) e^{-2 \pi i f t}+\tilde{h}_{a b}^{*}(f) e^{2 \pi i f t}\right]}$$ 
+where $\tilde{h}_{a b}(f)=\tilde{h}_{a b}(f, \mathbf{x}=0)=(f^{2}/c^{3}) A_{a b}(f)$.
+
+ \end{itemize}
+ \end{slide}
+ 
+ 
+ \begin{slide}{Fourier Transform}
+ \begin{itemize}
+ \item If we extend the definition of $\tilde{h}_{a b}(f)$ to negative frequencies as
+ $$
+\tilde{h}_{a b}(-f)=\tilde{h}_{a b}^{*}(f)
+$$
+then we can write the plane wave solution at the detector as
+$$
+\boxed{h_{a b}(t)=\int_{-\infty}^{\infty} d f \tilde{h}_{a b}(f) e^{-2 \pi i f t}}
+$$
+which means that $\tilde{h}_{a b}(f)$ is the \textit{Fourier transform} of ${h}_{a b}(t)$
+$$
+\boxed{\tilde{h}_{a b}(f)=\int_{-\infty}^{\infty} d t \, h_{a b}(t) e^{2 \pi i f t}}
+$$
+ \end{itemize}
+ \end{slide}
+ 
+  \begin{slide}{Fourier Transform during Inspiral Phase}
+ \begin{itemize}
+ \item For the inspiral phase (\(-\infty<t<t_{\mathrm{coal}}\)) the Fourier transform for a circular binary inspiral is 
+\begin{eqnarray} 
+\tilde{h}_{+}(f) &=&A e^{i \Psi_{+}(f)} \frac{c}{r}\left(\frac{G M_{c}}{c^{3}}\right)^{5 / 6} \frac{1}{f^{7 / 6}}\left(\frac{1+\cos ^{2} \iota}{2}\right) \\ 
+\tilde{h}_{\times}(f) &=& A e^{i \Psi_{\times}(f)} \frac{c}{r}\left(\frac{G M_{c}}{c^{3}}\right)^{5 / 6} \frac{1}{f^{7 / 6} \cos \iota}
+\end{eqnarray}
+where
+\vspace{-0.2cm}
+ $$
+A=\frac{1}{\pi^{2 / 3}}\left(\frac{5}{24}\right)^{1 / 2}
+$$
+and
+\vspace{-0.4cm}
+$$
+\Psi_{+}(f)=2 \pi f\left(t_{c}+r / c\right)-\Phi_{0}-\frac{\pi}{4}+\frac{3}{4}\left(\frac{G M_{c}}{c^{3}} 8 \pi f\right)^{-5 / 3}
+$$
+ $$
+\Psi_{\times}=\Psi_{+}+(\pi / 2)
+$$
+with   $\Phi_0=\Phi(\tau=0)$. For accurate matched filtering, post-Newtonian corrections to the phase $
+\Psi_{+, \times}(f)
+$ must be included.
+
+ \end{itemize}
+ \end{slide}
+ 
+ \begin{slide}{GW Energy Spectrum  during Inspiral Phase}
+ \begin{itemize}
+ \item We have seen that the energy emitted in GWs is
+ $$
+\left(\frac{d E}{d t}\right)_{\rm GW}=\frac{c^{3} r^{2}}{16 \pi G} \int d \Omega\left\langle\dot{h}_{+}^{2}+\dot{h}_{\times}^{2}\right\rangle
+$$
+The total energy flowing through solid angle $d\Omega$ is thus
+ $$
+\left(\frac{d E}{d \Omega}\right)_{\rm GW}=\frac{c^{3} r^{2}}{16 \pi G} \int_{-\infty}^{\infty} dt \left(\dot{h}_{+}^{2}+\dot{h}_{\times}^{2}\right)
+$$
+(because we integrate over all times, the average $\langle \rangle$ over a few periods is not required). Inserting the plane wave solution for a signal with $\lambda>>L_{\rm detector}$ and restricting to positive frequencies only, we obtain
+$$
+\boxed{\left(\frac{d E}{d \Omega}\right)_{\rm GW}=\frac{\pi c^{3}}{2 G} \int_{0}^{\infty} d f f^{2}\left(\left|\tilde{h}_{+}(f)\right|^{2}+\left|\tilde{h}_{\times}(f)\right|^{2}\right)
+}$$
+ \end{itemize}
+ \end{slide}
+ 
+ \begin{slide}{GW Energy Spectrum  during Inspiral Phase}
+ \begin{itemize}
+ \item Integrating over a sphere surround the source, the energy spectrum of GWs is 
+$$
+\boxed{\frac{d E}{d f}=\frac{\pi c^{3}}{2 G} f^{2} r^{2} \int d \Omega\left(\left|\tilde{h}_{+}(f)\right|^{2}+\left|\tilde{h}_{\times}(f)\right|^{2}\right)}
+$$
+\item For a circular binary inspiral, this becomes
+$$
+\boxed{\frac{d E}{d f}=\frac{\pi^{2 / 3}}{3 G}\left(G M_{c}\right)^{5 / 3} f^{-1 / 3}}
+$$
+ \end{itemize}
+ \end{slide}
+ 
+ \begin{slide}{Total Energy Emitted During Inspiral}
+ \begin{itemize}
+ \item  The total energy emitted in the inspiral phase (up to a maximum frequency
+$f_{\rm max}$ is
+ 
+$$
+\Delta E_{\mathrm{rad}} \sim \frac{\pi^{2 / 3}}{2 G}\left(G M_{c}\right)^{5
+/ 3} f_{\max }^{2 / 3}
+$$
+or
+$$
+\Delta E_{\mathrm{rad}} \sim 4.2 \times 10^{-2} M_{\odot} c^{2}\left(\frac{M_{c}}{1.21
+M_{\odot}}\right)^{5 / 3}\left(\frac{f_{\max }}{1 \mathrm{kHz}}\right)^{2
+/ 3}
+$$
+If we take $ f_{\max }\simeq2\left(f_{s}\right)_{\mathrm{ISCO}}$, then
+$$
+\boxed{\Delta E_{\mathrm{rad}} \sim 8 \times 10^{-2} \mu c^{2}}
+$$
+which depends only on the reduced mass of the system.
+\vspace{0.3cm}
+\item A better estimate is obtained considering the binding energy of the binary system at the ISCO $$
+E_{\text {binding }}=(1-\sqrt{8 / 9}) \mu c^{2} \simeq 5.7 \times 10^{-2} \mu c^{2}
+$$
+ \end{itemize}
+ \end{slide}
+ 
+   \begin{slide}{Elliptic Orbits}
+ \begin{itemize}
+ \item The elliptic orbit is described by polar coordinates $(r,\psi$) with origin
+at the center of mass. \begin{figure}
+  \centering
+   \includegraphics[height=6cm]{figs-GWs/elliptic-orbit.png}
+  \caption{The function $f(e)$. Figure from \cite{2008-Maggiore}.}
+\label{fig:polarization}
+\end{figure}
+ \end{itemize}
+ \end{slide}
+ 
+    \begin{slide}{Elliptic Orbits}
+ \begin{itemize}
+ \item The motion is equivalent to an effective one-body problem with mass $\mu$ and angular momentum $L=\mu r^2\dot\psi$. The total orbital energy  is
+\vskip -0.5cm
+ \begin{eqnarray} E &=&\frac{1}{2} \mu\left(\dot{r}^{2}+r^{2} \dot{\psi}^{2}\right)-\frac{G \mu m}{r} \\ &=&\frac{1}{2} \mu \dot{r}^{2}+\frac{L^{2}}{2 \mu r^{2}}-\frac{G \mu m}{r} \end{eqnarray}
+\vskip -0.2cm
+($E<0$). Integrating $d r / d \psi = \dot r/\dot\psi$, the equation of the orbit is
+$$\frac{1}{r}=\frac{1}{R}(1+e \cos \psi)$$
+\vskip -0.2cm
+where the eccentricity 
+\vskip -0.3cm$$
+e=\sqrt{1+\frac{2 E L^{2}}{G^{2} m^{2} \mu^{3}}}
+$$
+\vskip -0.2cm
+and the length scale
+$$
+R=\frac{L^{2}}{G m \mu^{2}}
+$$
+\vskip -0.2cm
+are constants of motion.
+ \end{itemize}
+ \end{slide}
+ 
+   \begin{slide}{Elliptic Orbits}
+ \begin{itemize}
+ \item The two semi-axes of the ellipse are 
+ $$
+\begin{aligned} a &=\frac{R}{1-e^{2}} =\frac{G m \mu}{2|E|} \\ b &=\frac{R}{\left(1-e^{2}\right)^{1
+/ 2}} \end{aligned}
+$$
+\vskip -0.2cm
+\item In terms of $a$ and $e$ the equation for the orbit is written as 
+$$\boxed{r=\frac{a\left(1-e^{2}\right)}{1+e \cos \psi}}$$
+and Kepler's law is
+\vskip -0.4cm
+$$\omega_{0}^{2}=\frac{G m}{a^{3}}$$
+with 
+\vskip -0.4cm
+\begin{equation}
+T=\frac{2 \pi}{\omega_{0}}
+\end{equation}
+being the period of the orbit.
+ \end{itemize}
+ \end{slide}
+ 
+   \begin{slide}{Elliptic Orbits}
+ \begin{itemize}
+ \item Integrating $\dot r$\ and $\dot \psi$ the time-dependent orbit $r(t)$, $\psi(t)$ is given in parametric form as 
+\begin{equation}
+\begin{aligned} r &=a[1-e \cos u] \\ \cos \psi &=\frac{\cos u-e}{1-e \cos u} \end{aligned}
+\end{equation}
+where the time parameter $u$ (the \textit{eccentric anomaly}) is related to $t$ through
+\begin{equation}
+\boxed{\beta \equiv u-e \sin u=\omega_{0} t}
+\end{equation}
+With $\psi(t=0)=0$ we can also write
+\begin{equation}
+\psi(u)=A_{e}(u) \equiv 2 \arctan \left[\left(\frac{1+e}{1-e}\right)^{1 / 2} \tan \frac{u}{2}\right]
+\end{equation}
+where $A_e(u)$ is called the \textit{true anomaly}. 
+\vskip 0.3cm
+\item Notice that for $e=0
+\Rightarrow\psi=u$.
+\end{itemize}
+ \end{slide}
+ 
+   \begin{slide}{The True Anomaly}
+ \begin{itemize}
+ \item  $-\pi\leq \psi \leq\pi$ and  $-\pi\leq u \leq\pi$
+ \begin{figure}
+  \centering
+   \includegraphics[height=4cm]{figs-GWs/psi-u.png}
+  \caption{The function $\psi(u)$ for $e=0.2$ (dashed line) and $e=0.75$ (solid line). Figure from \cite{2008-Maggiore}.}
+\label{fig:polarization}
+\end{figure}
+\item In Cartesian coordinates, the orbit is 
+\begin{equation}
+\begin{aligned} x(t) &=r \cos \psi =a[\cos u(t)-e] \\ y(t) &=r \sin \psi =b \sin u(t) \end{aligned}
+\end{equation}
+ \end{itemize}
+ \end{slide}
+ 
+ 
+  \begin{slide}{Elliptic Orbits}
+ \begin{itemize}
+ \item For an elliptic orbit of eccentricity $e$ and semi-major axis $a$, the power emitted in gravitational waves is
+ $$ 
+\boxed{P=\left(\frac{d E}{d t}\right)_{\rm GW} =\frac{32 G^{4} \mu^{2} m^{3}}{5 c^{5} a^{5}} f(e)}
+$$
+\vskip -0.4cm
+where
+\vskip -0.2cm
+$$
+f(e)=\frac{1}{\left(1-e^{2}\right)^{7 / 2}}\left(1+\frac{73}{24} e^{2}+\frac{37}{96} e^{4}\right)
+$$
+\vskip -0.4cm
+\begin{figure}
+  \centering
+  \includegraphics[width=5cm,height=3cm]{figs-GWs/fe.png}
+  \caption{The function $f(e)$. Figure from \cite{2008-Maggiore}.}
+\label{fig:polarization}
+\end{figure}
+ \end{itemize}
+ \end{slide}
+ 
+ 
+
+  \begin{slide}{}
+ \begin{itemize}
+ \item ~Rewriting Kepler's law, we see that $T\propto (-E)^{-3 / 2}$, so that
+\begin{equation}
+\frac{\dot{T}}{T}=-\frac{3}{2} \frac{\dot{E}}{E}
+\end{equation}
+and substituting $dE/dt = -(dE/dt)_{\rm GW}$ we find that the period changes according to
+\begin{equation}
+\frac{\dot{T}}{T}=-\frac{96}{5} \frac{G^{3} \mu m^{2}}{c^{5} a^{4}} f(e)
+\end{equation}
+or
+\begin{equation}
+\boxed{\frac{\dot{T}}{T}=-\frac{96}{5} \frac{G^{5 / 3} \mu m^{2 / 3}}{c^{5}}\left(\frac{T}{2 \pi}\right)^{-8 / 3} f(e)}
+\end{equation}
+(this equation was used to compare the observations of the Hulse-Taylor pulsar, which has $e=0.617$, to the theoretical prediction of a decreasing period due to GW emission). \end{itemize}
+ \end{slide}
+ 
+  \begin{slide}{Fourier Transform of the Orbit}
+ \begin{itemize}
+ \item The orbit $x(t)$, $y(t)$ is a periodic function of $u$ or $\beta$ with period $2\pi$.
+Restricting $\beta$ to \(-\pi \leqslant \beta \leqslant \pi\) we write the \textit{discrete Fourier transform}
+\vskip -0.2cm
+$$
+\begin{aligned} x(\beta) &=\sum_{n=-\infty}^{\infty} \tilde{x}_{n} e^{-i n \beta} \\ y(\beta) &=\sum_{n=-\infty}^{\infty} \tilde{y}_{n} e^{-i n \beta} \end{aligned}
+$$
+with $\tilde{x}_{n}=\tilde{x}_{-n}^{*}$ and \(\tilde{y}_{n}=\tilde{y}_{-n}^{*}\) (since $x(\beta)$ and $y(\beta)$ are real functions).
+\vskip 0.2cm
+\item Choosing the origin of time such as $y(t=0)=0$
+\vskip -0.4cm
+\begin{eqnarray} x(\beta) &=&\sum_{n=0}^{\infty} a_{n} \cos (n \beta) \\
+y(\beta)&=&\sum_{n=1}^{\infty} b_{n} \sin (n \beta)
+\end{eqnarray}
+\vskip -0.2cm
+with \(a_{0}=\tilde{x}_{0}\) and
+$a_{n}=2 \tilde{x}_{n}$
+ and 
+$b_{n}=-2 i \tilde{y}_{n}$
+for $n\geq 1$.
+\end{itemize}
+ \end{slide}
+ 
+  \begin{slide}{}
+ \begin{itemize}
+ \item With \(\beta=\omega_{0} t\) and \(\omega_{n}=n \omega_{0}\)
+\begin{eqnarray}x(t)&=&\sum_{n=0}^{\infty} a_{n} \cos \omega_{n} t
+\\ y(t)&=&\sum_{n=1}^{\infty} b_{n} \sin \omega_{n} t
+\end{eqnarray}
+with
+$$
+a_{0}=\frac{1}{\pi} \int_{0}^{\pi} d \beta x(\beta)=-(3 / 2) a e
+$$
+and
+\begin{eqnarray}a_{n}&=&\frac{2}{\pi}\int_{0}^{\pi} d \beta x(\beta) \cos (n \beta) =\frac{a}{n}\left[J_{n-1}(n e)-J_{n+1}(n e)\right] \\
+ b_{n}&=&\frac{2}{\pi} \int_{0}^{\pi} d \beta y(\beta) \sin (n \beta) =\frac{b}{n}\left[J_{n-1}(n e)+J_{n+1}(n e)\right]
+\end{eqnarray}
+where $J(x)$\ are Bessel functions.
+
+ \end{itemize}
+ \end{slide}
+ 
+  \begin{slide}{}
+ \begin{itemize}
+ \item To compute the GW spectrum, we need the Fourier decomposition of $x^{2}(t)$, $y^{2}(t)$  and $x(t) y(t)$, which are
+ \end{itemize}
+ $$
+ \begin{aligned} x^{2}(t) &=\sum_{n=0}^{\infty} A_{n} \cos \omega_{n} t \\ y^{2}(t) &=\sum_{n=0}^{\infty} B_{n} \cos \omega_{n} t \\ x(t) y(t) &=\sum_{n=1}^{\infty} C_{n} \sin \omega_{n} t \end{aligned}
+$$
+where
+$$
+\begin{array}{l}{A_{n}=\frac{a^{2}}{n}\left[J_{n-2}(n e)-J_{n+2}(n e)-2 e\left(J_{n-1}(n e)-J_{n+1}(n e)\right)\right]} \\ {B_{n}=\frac{b^{2}}{n}\left[J_{n+2}(n e)-J_{n-2}(n e)\right]} \\ {C_{n}=\frac{a b}{n}\left[J_{n+2}(n e)+J_{n-2}(n e)-e\left(J_{n+1}(n e)+J_{n-1}(n e)\right)\right]}\end{array}
+$$
+ \end{slide}
+ 
+  \begin{slide}{}
+ \begin{itemize}
+ \item Then, the radiated power is a sum of harmonics
+ $$
+P=\sum_{n=1}^{\infty} P_{n}
+$$
+where 
+ $$
+P_{n}=\frac{G \mu^{2} \omega_{0}^{6}}{15 c^{5}} n^{6}\left(A_{n}^{2}+B_{n}^{2}+3 C_{n}^{2}-A_{n} B_{n}\right)
+$$
+This can be written as
+$$
+\boxed{P_{n}=\frac{32 G^{4} \mu^{2} m^{3}}{5 c^{5} a^{5}} g(n, e)}
+$$
+where
+$$
+\boxed{g(n, e)=\frac{n^{6}}{96 a^{4}}\left[A_{n}^{2}(e)+B_{n}^{2}(e)+3 C_{n}^{2}(e)-A_{n}(e) B_{n}(e)\right]}
+$$
+ \end{itemize}
+ \end{slide}
+ 
+ \begin{slide}{Power of Harmonics for Elliptical Orbits}
+ \begin{figure}
+  \centering
+  \includegraphics[height=3cm]{figs-GWs/harmonics-e05.png}
+  \caption{The power $P_n$ as function of $n$ for $e=0.5$. Figure from \cite{2008-Maggiore}.}
+\label{fig:polarization}
+\end{figure}
+
+ \begin{figure}
+  \centering
+  \includegraphics[height=3cm]{figs-GWs/harmonics-e07.png}
+  \caption{The power $P_n$ as function of $n$ for $e=0.7$. Figure from \cite{2008-Maggiore}.}
+\label{fig:polarization}
+\end{figure}
+ \end{slide}
+ 
+  \begin{slide}{Evolution of Orbital Parameters}
+ \begin{itemize}
+ \item The energy and angular momentum of the orbit evolve as
+ $$
+\begin{array}{l}{\frac{d E}{d t}=-\frac{32}{5} \frac{G^{4} \mu^{2} m^{3}}{c^{5} a^{5}} \frac{1}{\left(1-e^{2}\right)^{7 / 2}}\left(1+\frac{73}{24} e^{2}+\frac{37}{96} e^{4}\right)} \\ {\frac{d L}{d t}=-\frac{32}{5} \frac{G^{7 / 2} \mu^{2} m^{5 / 2}}{c^{5} a^{7 / 2}} \frac{1}{\left(1-e^{2}\right)^{2}}\left(1+\frac{7}{8} e^{2}\right)}\end{array}
+$$
+which can be written as evolution equations for $a$ and $e$
+$$
+\begin{array}{l}{\frac{d a}{d t}=-\frac{64}{5} \frac{G^{3} \mu m^{2}}{c^{5} a^{3}} \frac{1}{\left(1-e^{2}\right)^{7 / 2}}\left(1+\frac{73}{24} e^{2}+\frac{37}{96} e^{4}\right)} \\ {\frac{d e}{d t}=-\frac{304}{15} \frac{G^{3} \mu m^{2}}{c^{5} a^{4}} \frac{e}{\left(1-e^{2}\right)^{5 / 2}}\left(1+\frac{121}{304} e^{2}\right)}\end{array}
+$$
+Notice that for $e>0 \Rightarrow de/dt<0$ (elliptic orbits circularize due to emission of GWs) and that for $e=0 \Rightarrow de/dt=0$ (circular orbits remain circular).
+ \end{itemize}
+ \end{slide}
+ 
+  \begin{slide}{Evolution of Orbital Parameters}
+ \begin{itemize}
+ \item Numerically it is challenging to compute $a(t)$ and $e(t)$ over large timescales, but $a(e)$ can be determined analytically, by solving the equation
+$$
+\frac{d a}{d e}=\frac{12}{19} a \frac{1+(73 / 24) e^{2}+(37 / 96) e^{4}}{e\left(1-e^{2}\right)\left[1+(121 / 304) e^{2}\right]}
+$$
+We find
+$$
+\boxed{a(e)=c_{0} \frac{e^{12 / 19}}{1-e^{2}}\left(1+\frac{121}{304} e^{2}\right)^{870 / 2299}}
+$$ 
+where $c_0$ is determined by the initial condition $a=a_0$ when $e=e_0$.
+\vskip 0.4cm
+\item The Hulse-Taylor binary pulsar has $a_0=2\times 10^9$m and $e=0.617$ today. By the time the separation becomes $a\simeq1000$km ($\sim 100$ neutron star radii) the eccentricity will have become $e\simeq6\times10^{-6}$, practically circular.
+\end{itemize}
+ \end{slide}
+ 
+  \begin{slide}{Evolution of Orbital Parameters}
+ \begin{figure}
+  \centering
+  \includegraphics[height=6cm]{figs-GWs/ae.png}
+  \caption{The scaled semi-major axis $a(e)/c_0$ as a function of $e$. Figure from \cite{2008-Maggiore}.}
+\label{fig:polarization}
+\end{figure}
+ \end{slide}
+ 
+ 
+   \begin{slide}{Time to Coalescence}
+ \begin{itemize}
+ \item The time to coalescence for an elliptical orbit with initial $a_0$ and $e_0$ is
+ $$
+\boxed{\tau_{0}\left(a_{0}, e_{0}\right) \simeq 9.83 \times 10^6\mathrm{yr}\left(\frac{T_{0}}{1 \mathrm{hr}}\right)^{8 / 3}\left(\frac{M_{\odot}}{m}\right)^{2 / 3}\left(\frac{M_{\odot}}{\mu}\right) F\left(e_{0}\right)}
+$$
+where
+$$
+F\left(e_{0}\right)=\frac{48}{19} \frac{1}{g^{4}\left(e_{0}\right)} \int_{0}^{e_{0}} d e \frac{g^{4}(e)\left(1-e^{2}\right)^{5 / 2}}{e\left(1+\frac{121}{304} e^{2}\right)}
+$$
+where
+$$
+g(e)=\frac{e^{12 / 19}}{1-e^{2}}\left(1+\frac{121}{304} e^{2}\right)^{870 / 2299}
+$$
+\item For the Hulse-Taylor binary pulsar, $T_0=7.75\,$h, $e_0=0.617$ and $m_1=m_2\simeq1.4M_\odot$ and we find a time to coalescence of $\simeq 300\,$Myr.
+ \end{itemize}
+ \end{slide}
+ 
+  \begin{slide}{Binaries at Cosmological Distances}
+ \begin{itemize}
+ \item Advanced LIGO can detect binary BH mergers out to a few Gpc ( $z\sim 0.25-0.5$, while LISA will reach  $z\sim
+5-10$.
+
+\vskip 0.3cm
+
+\item The metric in an FRW cosmological model is
+$$
+d s^{2}=-c^{2} d t^{2}+a^{2}(t)\left[\frac{d r^{2}}{1-k r^{2}}+r^{2} d \theta^{2}+r^{2} \sin ^{2} \theta d \phi^{2}\right]
+$$ 
+where $a(t)$ is a scale factor and $k=0$ for a spatially flat universe or $k=\pm1$ for a spatially closed or open universe.
+The coordinates $t,r,\theta,\phi$ are comoving coordinates (galaxies remain at fixed coordinates as the universe expands by the scale factor $a(t)$).
+
+\vskip 0.3cm
+\item Two galaxies that differ by coordinate distance $dr = r_2-r_1$, differ by physical distance
+$$
+r_{\text {phys }}(t)=a(t) \int_{r_1}^{r_2} \frac{d r}{\left(1-k r^{2}\right)^{1 / 2}}
+$$
+
+ \end{itemize}
+ \end{slide}
+ 
+  \begin{slide}{Binaries at Cosmological Distances}
+ \begin{itemize}
+ \item Light signals travel along the light cone ($ds^2=0$). For a signal emitted at $r=r_2$ at time $t=t_{\rm emis}$ and received at  $r=r_1$ at time $t=t_{\rm obs}$
+$$
+\int_{t_{\text {emis }}}^{t_{\text {obs }}} \frac{c d t}{a(t)}=\int_{r_1}^{r_2} \frac{d r}{\left(1-k r^{2}\right)^{1 / 2}}
+$$
+A second signal is emitted at time $t=t_{\rm emis}+\Delta t_{\rm emis}$ and observed at time $t=t_{\rm obs}+\Delta t_{\rm obs}$. Then
+
+$$
+\int_{t_{\mathrm{emis}}+\Delta t_{\mathrm{emis}}}^{t_{\mathrm{obs}}+\Delta t_{\mathrm{obs}}} \frac{c d t}{a(t)}=\int_{r_1}^{r_2} \frac{d r}{\left(1-k r^{2}\right)^{1 / 2}}
+$$
+The right side is the same and for $\Delta t_{\rm emis,obs}<< (t_{\rm obs}-t_{\rm emis})$ we find
+$$
+\Delta t_{\mathrm{obs}}=\frac{a\left(t_{\mathrm{obs}}\right)}{a\left(t_{\mathrm{emis}}\right)} \Delta t_{\mathrm{emis}}
+$$
+
+ \end{itemize}
+ \end{slide}
+ 
+  \begin{slide}{Redshift}
+ \begin{itemize}
+ \item The redshift $z$ of the source is defined by
+ \vskip -0.2cm
+ $$
+1+z=\frac{a\left(t_{\mathrm{obs}}\right)}{a\left(t_{\mathrm{emis}}\right)}
+$$
+Then, the observed time interval is thus larger by a factor of $1+z$
+\vskip -0.2cm
+$$
+\Delta t_{\mathrm{obs}}= (1+z)
+\Delta t_{\mathrm{emis}}
+$$
+The observed wavelength is 
+\vskip -0.2cm
+$$
+\boxed{\lambda_{\mathrm{obs}}=(1+z) \lambda_{\rm emis}}
+$$
+and the observed frequency is
+\vskip -0.2cm
+$$
+\boxed{f_{\mathrm{obs}}=\frac{ f_{\rm emis}}{1+z}}
+$$
+and the observed energy is
+\vskip -0.2cm
+$$
+\boxed{E_{\mathrm{obs}}=\frac{ E_{\rm emis}}{1+z}}
+$$
+
+ \end{itemize}
+ \end{slide}
+ 
+  
+  \begin{slide}{}
+ \begin{itemize}
+ \item If the emitted luminosity is 
+ \vskip -0.2cm
+ $${\cal L} = \frac{dE_{\rm emis}}{d t_{\rm emis}}$$ 
+ then the observed luminosity is
+  \vskip -0.2cm
+ $$
+\frac{d E_{\mathrm{obs}}}{d t_{\mathrm{obs}}}=\frac{1}{(1+z)^{2}} \frac{d E_{\rm emis}}{d t_{\rm emis}} = \frac{{\cal L}}{(1+z)^{2}}
+$$
+
+\item The spherical area at a coordinate distance $r$ from a source is 
+ \vskip -0.2cm
+$$
+A=4 \pi a^2(t) r^2 
+$$
+ \vskip -0.1cm
+\item
+The flux that the observer receives is 
+$$
+\boxed{\mathcal{F}=\frac{1}{A}\frac{d E_{\mathrm{obs}}}{d t_{\mathrm{obs}}}=\frac{\mathcal{L}}
+{4 \pi a^{2}\left(t_{\mathrm{obs}}\right) r^{2}(1+z)^{2}}=\frac{\mathcal{L}}{4
+\pi d_L^2}}
+$$
+ \vskip -0.2cm
+where 
+ \vskip -0.7cm
+ $$
+d_{L}=(1+z) a\left(t_{\rm obs}\right) r
+$$
+is the \textit{luminosity distance}, which can be calculated if ${\cal L}$ and ${\cal F}$ are known.
+ \end{itemize}
+
+ \end{slide}
+ 
+  
+  \begin{slide}{Hubble Parameter}
+  
+ \begin{itemize}
+ \item Taylor expanding $a(t)$ around the present time, we can write
+ \vskip -0.2cm
+ $$
+\frac{a(t)}{a\left(t_{0}\right)}=1+H_{0}\left(t-t_{0}\right)-\frac{1}{2} q_{0} H_{0}^{2}\left(t-t_{0}\right)^{2}+\ldots
+$$
+where the Hubble constant is
+\vskip -0.4cm
+$$
+H_{0} \equiv \frac{\dot{a}\left(t_{0}\right)}{a\left(t_{0}\right)}
+$$
+\vskip -0.2cm
+and the deceleration parameter is
+\vskip -0.2cm
+$$
+\begin{aligned} q_{0} & \equiv-\frac{\ddot{a}\left(t_{0}\right)}{a\left(t_{0}\right)} \frac{1}{H_{0}^{2}} \\ &=-\frac{a\left(t_{0}\right) \ddot{a}\left(t_{0}\right)}{\dot{a}^{2}\left(t_{0}\right)} \end{aligned}
+$$
+\vskip -0.1cm
+Since $ a\left(t_{0}\right) / a(t)=1+z$, we can invert the expansion as
+$$
+\boxed{\frac{H_{0} d_{L}(z)}{c}=z+\frac{1}{2}\left(1-q_{0}\right) z^{2}+\ldots}
+$$
+The first term is Hubble's law: $ cz \simeq H_{0} d_{L}$, valid for small redshifts only.
+ \end{itemize}
+ \end{slide}
+ 
+  
+  \begin{slide}{Hubble Parameter}
+ \begin{itemize}
+ \item More generally, 
+ $$
+H(t) \equiv \frac{\dot{a}\left(t\right)}{a\left(t\right)}
+$$
+and since $a(t)$ is a function of $z$, so is the Hubble parameter $H=H(z)$.
+
+\item For example, for a flat universe $(k=0)$ we find
+$$
+\boxed{\frac{c}{H(z)}=\frac{d}{d z}\left(\frac{d_{L}(z)}{1+z}\right)}
+$$
+An observational determination of $d_L(z)$ will allow us to calculate $H(z)$, thus $d_L(z)$ encodes the whole expansion history of the universe.
+ \end{itemize}
+ \end{slide}
+ 
+  
+  \begin{slide}{Gravitational Waves from Cosmological Distances}
+ \begin{itemize}
+ \item The time to coalesce in the observer's frame is $
+\tau_{\mathrm{obs}}=(1+z) \tau_{s}$. The two polarizations are then
+\vskip -0.2cm
+ $$
+\begin{array}{l}{h_{+}\left(\tau_{\mathrm{obs}}\right)=h_{c}\left(\tau_{\mathrm{obs}}\right) \frac{1+\cos ^{2} \iota}{2} \cos \left[\Phi\left(\tau_{\mathrm{obs}}\right)\right]} \\ {h_{\times}\left(\tau_{\mathrm{obs}}\right)=h_{c}\left(\tau_{\mathrm{obs}}\right) \cos \iota \sin \left[\Phi\left(\tau_{\mathrm{obs}}\right)\right]}\end{array}
+$$
+\vskip -0.2cm
+where
+$$
+\Phi\left(\tau_{\mathrm{obs}}\right)=-2\left(\frac{5 G \mathcal{M}_{c}(z)}{c^{3}}\right)^{-5 / 8} \tau_{\mathrm{obs}}^{5 / 8}+\Phi_{0}
+$$
+\vskip -0.2cm
+and $$
+h_{c}\left(\tau_{\mathrm{obs}}\right)=\frac{4}{d_{L}(z)}\left(\frac{G \mathcal{M}_{c}(z)}{c^{2}}\right)^{5 / 3}\left(\frac{\pi f_{\mathrm{gw}}^{(\mathrm{obs})}\left(\tau_{\mathrm{obs}}\right)}{c}\right)^{2 / 3}
+$$
+\vskip -0.2cm
+where the observed frequency is
+\vskip -0.2cm
+$$
+f_{\mathrm{gw}}^{(\mathrm{obs})}\left(\tau_{\mathrm{obs}}\right)=\frac{1}{\pi}\left(\frac{5}{256} \frac{1}{\tau_{\mathrm{obs}}}\right)^{3 / 8}\left(\frac{G \mathcal{M}_{c}(z)}{c^{3}}\right)^{-5 / 8}
+$$
+and we defined the redshifted chirp mass
+$$
+\mathcal{M}_{c}=(1+z) M_{c}
+$$
+ \end{itemize}
+ \end{slide}
+ 
+  
+  \begin{slide}{Detector Response}
+ \begin{itemize}
+ \item The plane wave solution at the detector is
+ $$
+h_{ij}(t)=\int_{-\infty}^{\infty} d f \tilde{h}_{ij}(f) e^{-2 \pi
+i f t}
+$$
+\vskip -0.2cm
+If the wave is traveling along $\hat{\mathbf{n}}$ and we denote as $\hat{\mathbf{u}}$ and $\hat{\mathbf{v}}$ the two unit vectors orthogonal to  $\hat{\mathbf{n}}$ and to each other, then:
+$$
+\begin{aligned} h_{i j}(t) &= e_{i j}^{+}(\hat{\mathbf{n}}) \int_{-\infty}^{\infty} d f \tilde{h}_{+}(f) e^{-2 \pi i f t} + e_{i j}^{\times}(\hat{\mathbf{n}})
+\int_{-\infty}^{\infty} d f \tilde{h}_{\times}(f) e^{-2 \pi i f t} \\ 
+&=\sum_{A=+, \times} e_{i j}^{A}(\hat{\mathbf{n}})
+\int_{-\infty}^{\infty} d f \tilde{h}_{A}(f) e^{-2 \pi i f t} \\ 
+&=\sum_{A=+, x} e_{i j}^{A}(\hat{\mathbf{n}}) h_{A}(t) \end{aligned}
+$$
+\vskip -0.2cm
+where the two \textit{polarization tensors} are
+\vskip -0.2cm
+$$
+e_{i j}^{+}(\hat{\mathbf{n}})=\hat{\mathbf{u}}_{i} \hat{\mathbf{u}}_{j}-\hat{\mathbf{v}}_{i} \hat{\mathbf{v}}_{j}
+$$
+$$
+ e_{i j}^{\times}(\hat{\mathbf{n}})=\hat{\mathbf{u}}_{i}
+\hat{\mathbf{v}}_{j}+\hat{\mathbf{v}}_{i} \hat{\mathbf{u}}_{j}
+$$
+ \end{itemize}
+ \end{slide}
+ 
+  
+  \begin{slide}{Detector Response}
+ \begin{itemize}
+ \item If we choose $\hat{\mathbf{n}}=\hat{\mathbf{z}}$, $\hat{\mathbf{u}}=\hat{\mathbf{x}}$
+and $\hat{\mathbf{v}}=\hat{\mathbf{y}}$, then
+$$
+e_{ij}^{+}=\left(\begin{array}{cc}{1} & {0} \\ {0} & {-1}\end{array}\right)_{ij}
+$$
+$$
+e_{ij}^{\times}=\left(\begin{array}{ll}{0} & {1} \\ {1} & {0}\end{array}\right)_{ij}
+$$
+
+\item The detector acts as a \textit{linear system}. The effect of the detector on the signal is described by the \textit{detector tensor} $D^{ij}$ and the \textit{detector input} is 
+$$
+\boxed{h(t)=D^{i j} h_{i j}(t)}
+$$
+For a linear system, the Fourier transform of the \textit{detector output} ${h}_{\rm {out }}(t)$ is related to the Fourier transform of the detector input through
+$$
+\boxed{\tilde{h}_{\rm {out }}(f)=T(f) \tilde{h}(f)}
+$$ 
+where $T(f)$ is the \textit{transfer function} of the system.\end{itemize}
+ \end{slide}
+ 
+  
+  \begin{slide}{Detector Noise}
+ \begin{itemize}
+ \item The output of the detector will include noise $n_{\mathrm{out}}(t)$, so that the total signal in the output is 
+$$
+\boxed{s_{\mathrm{out}}(t)=h_{\mathrm{out}}(t)+n_{\mathrm{out}}(t)}
+$$
+We can define the \textit{input noise} $n(t)$  by $$
+\boxed{\tilde{n}(f)=T^{-1}(f) \tilde{n}_{\mathrm{out}}(f)}
+$$
+It is a fictitious noise that if it were injected at the detector input, without any other noise present in the system, it would produce $n_{\rm out}(t)$ at the output.
+\vskip 0.2cm
+\item We define the total signal at the input as
+$$
+\boxed{s(t)=h(t)+n(t)}
+$$
+so that we can  compare the input signal to the input noise.
+ \end{itemize}
+ \end{slide}
+ 
+  
+  \begin{slide}{Detector Noise}
+ \begin{itemize}
+ \item The \textit{auto-correlation function} of the noise is 
+ $$
+\boxed{R(\tau) \equiv\langle n(t+\tau) n(t)\rangle}
+$$
+where $< \,>$ is a time average. As $\tau$\ increases, the noise at time $t+\tau$ becomes more and more uncorrelated from the noise at time $t$. For white noise, \(R(\tau) \sim \delta(\tau)\), otherwise $
+R(\tau) \sim \exp \left\{-|\tau| / \tau_{c}\right\}
+$ where $\tau_c$ is a characteristic timescale.
+Since $R(\tau)$ goes to 0 very fast as $t\rightarrow \pm\infty$ it can be Fourier transformed:
+\vskip -0.3cm
+$$  R(\tau) =\frac{1}{2} \int_{-\infty}^{\infty} d f S_{n}(f) e^{-i 2 \pi f \tau} $$
+ \vskip -0.3cm
+and then
+\vskip -0.6cm
+$$
+\boxed{\left\langle n^{2}(t)\right\rangle =\int_{0}^{\infty} d f S_{n}(f)}
+$$The factor $1/2$ is used by convention, so that  $S_{n}(f)$ is the  \textit{one-sided noise spectral density or one-sided power spectral density (PSD)} 
+ \vskip -0.3cm
+$$ \boxed{S_{n}(f) \equiv 2 \int_{-\infty}^{\infty} d \tau R(\tau) e^{i 2 \pi f \tau}}$$
+ \vskip -0.3cm
+\end{itemize}
+ \end{slide} 
+ 
+ \begin{slide}{Characteristic Strain and Amplitude Spectral Density}
+ \begin{itemize}
+ \item For a signal $h(t)$, we define the \textit{characteristic strain} as
+\vskip -0.2cm
+ $$
+\left[h_{\mathrm{c}}(f)\right]^{2}=4 f^{2}|\tilde{h}(f)|^{2}
+$$
+with $ h_{\mathrm{c}}(f)=\sqrt{N_{\mathrm{cycles}}}|\tilde{h}(f)|$ and for a detector with PSD  $S_{n}(f)$, we define the \textit{characteristic noise } as
+\vskip -0.2cm
+$$
+\left[h_{n}(f)\right]^{2}=f S_{n}(f)
+$$
+Both $h_c(f)$ and $h_n(f)$ and dimensionless.
+\vskip 0.2cm
+\item From the last equation, we obtain the \textit{amplitude spectral density} of the noise
+\vskip -0.5cm
+$$
+\boxed{\sqrt{S_{n}(f)}=h_{n}(f) f^{-1 / 2}}
+$$
+and by analogy, we define an equivalent function for the signal 
+$$
+\boxed{\sqrt{S_{h}(f)}=h_{\mathrm{c}}(f) f^{-1 / 2}=2 f^{1 / 2}|\tilde{h}(f)|}
+$$
+These have units of ${\rm Hz}^{-1/2}$ and are the most commonly used definitions for the sensitivity curves. 
+
+ \end{itemize}
+ \end{slide}
+ 
+ \begin{slide}{Detector Noise}
+ \begin{figure}
+ \centering
+   \includegraphics[height=6.3cm]{figs-GWs/GLV-noise.png}
+  \caption{Sensitivity curves for 4 different detectors operating on Feb 4, 2020.}
+\label{fig:polarization}
+\end{figure}
+ \end{slide}
+  
+  \begin{slide}{Matched Filtering}
+ \begin{itemize}
+ \item When \(s(t)=h(t)+n(t)\) we can calculate for an observation time $T$
+ $$\frac{1}{T} \int_{0}^{T} d t\, s(t) h(t)=\frac{1}{T} \int_{0}^{T} d t\, h^{2}(t)+\frac{1}{T} \int_{0}^{T} d t\, n(t) h(t)$$
+Because $h(t)\sim h_0 \cos(\omega t)$, the first term on the right side becomes for large T
+$$\frac{1}{T} \int_{0}^{T} d t h^{2}(t) \sim h_{0}^{2}$$
+But, the second integral
+over the arbitrarily oscillating quantity $n(t)h(t)$ grows only as $T^{1/2}$\ (typical for random walk) so that
+$$\frac{1}{T} \int_{0}^{T} d t\, n(t) h(t) \sim\left(\frac{\tau_{0}}{T}\right)^{1 / 2} n_{0} h_{0}$$
+where $n_0$ is the characteristic amplitude of the noise and $\tau_0$ a characteristic time (e.g. the period of the wave $h(t)$).
+In the limit $T\rightarrow \infty$, the second term averages to zero (\textit{the noise is filtered out}). \end{itemize}
+ \end{slide}
+ 
+  
+  \begin{slide}{Optimal Signal-to-Noise Ratio}
+ \begin{itemize}
+ \item The optimal $S/N$ for a signal $h(t)$ and a detector with one-sided PSD $S_n(f)$ is 
+ $$\boxed{\left(\frac{S}{N}\right)^{2}=4 \int_{0}^{\infty} d f \frac{|\tilde{h}(f)|^{2}}{S_{n}(f)} =\int_{-\infty}^{\infty} \mathrm{d}(\log f)\left[\frac{h_{\mathrm{c}}(f)}{h_{n}(f)}\right]^{2}}$$
+\item For a coalescing binary this becomes
+$$\boxed{\left(\frac{S}{N}\right)^{2}=\frac{5}{6} \frac{1}{\pi^{4 / 3}} \frac{c^{2}}{r^{2}}\left(\frac{G M_{c}}{c^{3}}\right)^{5 / 3}|Q(\theta, \phi ; \iota)|^{2} \int_{f_{\rm min}}^{f_{\max }} d f \frac{f^{-7 / 3}}{S_{n}(f)} }$$
+where $Q(\theta, \phi ; \iota)$ is a geometric factor. When averaged over all angles and inclinations, this factor becomes
+$$\left\langle|Q(\theta, \phi ; \iota)|^{2}\right\rangle^{1 / 2}=\frac{2}{5}$$
+
+\item A detection is claimed only when $S/N>5$.
+ \end{itemize}
+ \end{slide}
+ 
+ \begin{slide}{Signal Templates}
+ 
+ \begin{figure}
+ \centering
+   \includegraphics[height=6.6cm]{figs-GWs/templates.png}
+  \caption{Construction of analytic templates for BBH signals.
+Figure from \cite{2019CRPhy..20..507B}.}
+\label{fig:polarization}
+\end{figure}
+ \end{slide}
+ 
+ \begin{slide}{Detection of GW150914}
+ \begin{figure}
+ \centering
+   \includegraphics[height=6.6cm]{figs-GWs/BBH-detection.png}
+  \caption{Comparison between data and analytic templates for BBH signal. Figure from \cite{2019CRPhy..20..507B}.}
+\label{fig:polarization}
+\end{figure}
+ \end{slide}
+ 
+  
+  \begin{slide}{Detector Range}
+ \begin{itemize}
+ \item Inverting the previous relation, one can define the detector range, i.e. the distance to which a binary system can be detected with certain $S/N$ using a detector that has one-sided
+noise spectral density $S_n(f)$ 
+ \vskip -0.6cm
+ $$\boxed{ d_{\rm range}=\frac{2}{5}\left(\frac{5}{6}\right)^{1 / 2} \frac{c}{\pi^{2 / 3}}\left(\frac{G M_{c}}{c^{3}}\right)^{5 / 6}\left[\int_{f_{\rm min}}^{f_{\max }} d f \frac{f^{-7 / 3}}{S_{n}(f)}\right]^{1 / 2}(S / N)^{-1}}$$
+ \end{itemize}
+ \vskip -0.5cm
+\begin{figure}
+ \centering
+   \includegraphics[height=4.5cm]{figs-GWs/VIRGO-BNS_hor.png}
+  \caption{VIRGO detector range for a typical BNS detection.}
+\label{fig:polarization}
+\end{figure}
+ \end{slide}
+ 
+\begin{slide}{Detector Range for BNS Inspiral}
+ 
+ \begin{figure}
+ \centering
+   \includegraphics[height=6cm]{figs-GWs/LVC-Inspiral-range.png}
+  \caption{LIGO-VIRGO detector range for a typical BNS inspiral.}
+\label{fig:polarization}
+\end{figure}
+ \end{slide}
+ 
+ 
+ 
+\begin{slide}{References}
+\bibliographystyle{plain}
+\bibliography{bibliography}
+\end{slide}
+
+%\begin{slide}
+%\bibliographystyle{plain}
+%\bibliography{bibliography}
+%\end{slide}
+
+\end{document}
+
+
